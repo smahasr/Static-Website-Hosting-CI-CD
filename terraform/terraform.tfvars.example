@@ -1,0 +1,30 @@
+# Copy this file to terraform.tfvars and replace every placeholder.
+# terraform.tfvars may contain environment-specific identifiers and should not
+# be committed when your organization treats those values as private.
+
+aws_region  = "us-east-1"
+project_name = "bmw-x6-static"
+environment  = "production"
+
+# S3 bucket names are globally unique.
+bucket_name = "bmw-x6-static-prod-REPLACE_WITH_ACCOUNT_ID"
+
+# Exact GitHub repository information.
+github_repository = "hemanth-kumar/REPLACE_WITH_REPO"
+
+github_protected_branch = "main"
+github_oidc_audience    = "sts.amazonaws.com"
+
+# PriceClass_100 is the cost-conscious default. Use PriceClass_200 or
+# PriceClass_All when wider edge coverage is required.
+cloudfront_price_class = "PriceClass_100"
+
+# Never enable this in production unless deleting every bucket object and
+# version is explicitly intended.
+force_destroy_bucket = false
+
+additional_tags = {
+  Owner      = "REPLACE_WITH_TEAM"
+  Repository = "https://github.com/hemanth-kumar/REPLACE_WITH_REPO"
+}
+

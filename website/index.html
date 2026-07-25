@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the new BMW X6 M60i and start building yours.">
+  <meta name="theme-color" content="#050505">
+  <title>BMW X6 M60i</title>
+  <link rel="preload" as="image" href="assets/bmw-x6-hero.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="hero">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="BMW home">
+        <svg viewBox="0 0 76 76" role="img" aria-labelledby="brand-title">
+          <title id="brand-title">BMW</title>
+          <circle cx="38" cy="38" r="36" fill="#050505" stroke="#fff" stroke-width="2.4"/>
+          <circle cx="38" cy="38" r="23" fill="#fff" stroke="#fff"/>
+          <path d="M38 15a23 23 0 0 1 23 23H38zM38 38v23A23 23 0 0 1 15 38z" fill="#1476c6"/>
+          <path d="M24 17l4-4 5 5-4 4zm10-6h6v8h-6zm13 2l5 3-4 7-5-3z" fill="#fff"/>
+          <text x="24" y="19" fill="#050505" font-size="7" font-weight="700" transform="rotate(-42 24 19)">B</text>
+          <text x="35" y="14" fill="#050505" font-size="7" font-weight="700">M</text>
+          <text x="49" y="19" fill="#050505" font-size="7" font-weight="700" transform="rotate(40 49 19)">W</text>
+        </svg>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#models">All Models</a>
+        <a href="#electric">Electric</a>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false">
+            Visit Online Shop <span class="chevron"></span>
+          </button>
+          <div class="nav-menu">
+            <a href="#shop">Shop new cars</a>
+            <a href="#used">Find a used BMW</a>
+            <a href="#accessories">Accessories</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false">
+            More BMW <span class="chevron"></span>
+          </button>
+          <div class="nav-menu">
+            <a href="#services">Services</a>
+            <a href="#discover">Discover BMW</a>
+            <a href="#support">Customer support</a>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="utility-nav" aria-label="Account and shopping">
+        <button type="button" aria-label="Your account" data-toast="Account area">
+          <svg viewBox="0 0 24 24"><path d="M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM4 22v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+        </button>
+        <button type="button" aria-label="Shopping cart" data-toast="Your cart is empty">
+          <svg viewBox="0 0 24 24"><path d="M3 3h2l2.5 12h10l2-8H6M9 20h.01M17 20h.01"/></svg>
+        </button>
+        <button type="button" aria-label="Saved vehicles" data-toast="No saved vehicles yet">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+        </button>
+        <button type="button" aria-label="Find a BMW location" data-toast="Location finder opened">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </button>
+      </nav>
+    </header>
+
+    <section class="hero-content" aria-labelledby="hero-title">
+      <p class="eyebrow">The</p>
+      <h1 id="hero-title">X6</h1>
+      <div class="model-name">
+        <span class="m-mark" role="img" aria-label="M">
+          <i></i><i></i><i></i><b>M</b>
+        </span>
+        <span>THE NEW BMW X6 M60i</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#build" data-action="build">Build &amp; Price</a>
+        <a class="btn btn-secondary" href="#know-more" data-action="learn">Know more</a>
+      </div>
+    </section>
+
+    <div class="car-label">BMW X6 M60i</div>
+
+    <button class="chat-launcher" type="button" aria-label="Open chat" aria-expanded="false">
+      <svg viewBox="0 0 24 24"><path d="M20 15a3 3 0 0 1-3 3H8l-4 3v-3a3 3 0 0 1-2-3V7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3Z"/><path d="M7 9h8M7 13h5"/></svg>
+    </button>
+
+    <aside class="chat-panel" inert aria-hidden="true" aria-label="BMW assistant">
+      <div class="chat-head">
+        <div><strong>BMW Assistant</strong><span>Online</span></div>
+        <button type="button" class="chat-close" aria-label="Close chat">×</button>
+      </div>
+      <p>Welcome. How can we help you discover the new BMW X6?</p>
+      <div class="chat-options">
+        <button type="button" data-toast="A product specialist will be with you shortly">Talk to a specialist</button>
+        <button type="button" data-toast="Test drive request started">Book a test drive</button>
+      </div>
+    </aside>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
