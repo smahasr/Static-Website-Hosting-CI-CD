@@ -180,6 +180,12 @@ for every repo.
         "StringEquals": {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
           "token.actions.githubusercontent.com:sub": "repo:<OWNER>/<REPO>:environment:Production"
+          // NOTE: some repos get sub claims with owner/repo IDs appended by GitHub, e.g.
+          // "repo:<OWNER>@<OWNER_ID>/<REPO>@<REPO_ID>:environment:Production" — if AssumeRoleWithWebIdentity
+          // fails with "Not authorized", print the actual token claims in a workflow step and match exactly:
+          //   curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+          //     "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" \
+          //     | jq -r '.value' | cut -d. -f2 | base64 -d | jq .
         }
       }
     }
