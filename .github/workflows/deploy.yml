@@ -87,6 +87,8 @@ jobs:
     needs: deploy
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment:
+      name: Production
     steps:
       - name: Confirm home page and hero asset are reachable
         run: |
