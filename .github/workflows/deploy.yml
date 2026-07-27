@@ -17,10 +17,10 @@ jobs:
           node-version: "22"
       - name: Confirm required files and assets exist
         run: |
-          test -f website/index.html
-          test -f website/styles.css
-          test -f website/script.js
-          test -f website/assets/bmw-x6-hero.png
+          test -f index.html
+          test -f styles.css
+          test -f script.js
+          test -f assets/bmw-x6-hero.png
       - name: Parse JavaScript
         run: node --check script.js
       - name: Validate HTML
