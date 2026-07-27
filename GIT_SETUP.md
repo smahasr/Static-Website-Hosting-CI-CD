@@ -53,8 +53,8 @@ Local config (no `--global`) always wins over global config inside that repo.
 global):
 
 ```powershell
-git config user.name
-git config user.email
+git config user.name  or git config --global user.name
+git config user.email or git config --global user.email
 ```
 
 **See where each value comes from and every config source at once:**

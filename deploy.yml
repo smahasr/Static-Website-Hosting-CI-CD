@@ -17,10 +17,10 @@ jobs:
           node-version: "22"
       - name: Confirm required files and assets exist
         run: |
-          test -f index.html
-          test -f styles.css
-          test -f script.js
-          test -f assets/bmw-x6-hero.png
+          test -f website/index.html
+          test -f website/styles.css
+          test -f website/script.js
+          test -f website/assets/bmw-x6-hero.png
       - name: Parse JavaScript
         run: node --check script.js
       - name: Validate HTML
@@ -92,40 +92,3 @@ jobs:
         run: |
           curl --fail --silent --show-error "${{ vars.SITE_URL }}" | grep -q "<title>BMW X6 M60i</title>"
           curl --fail --silent --show-error --head "${{ vars.SITE_URL }}/assets/bmw-x6-hero.png"
-
-  notify:
-    name: Notify
-    needs: [validate, package, deploy, verify]
-    if: always() && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send failure email
-        if: contains(needs.*.result, 'failure')
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: ${{ vars.MAIL_SERVER }}
-          server_port: ${{ vars.MAIL_PORT }}
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: ${{ vars.MAIL_FROM }}
-          to: ${{ vars.MAIL_TO }}
-          subject: "FAILED: ${{ github.repository }} deployment (run ${{ github.run_id }})"
-          body: |
-            Deployment pipeline failed for ${{ github.repository }} on commit ${{ github.sha }}.
-            Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-      - name: Send success email
-        if: "!contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled')"
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: ${{ vars.MAIL_SERVER }}
-          server_port: ${{ vars.MAIL_PORT }}
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: ${{ vars.MAIL_FROM }}
-          to: ${{ vars.MAIL_TO }}
-          subject: "SUCCESS: ${{ github.repository }} deployed (run ${{ github.run_id }})"
-          body: |
-            Deployment succeeded for ${{ github.repository }} on commit ${{ github.sha }}.
-            Site: ${{ vars.SITE_URL }}
-            Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
